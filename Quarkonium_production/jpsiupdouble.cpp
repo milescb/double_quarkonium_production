@@ -80,9 +80,8 @@ void jpsiupdouble() {
     }
 
     const char *title;
-    //if (useAcceptEff == true) title = "#scale[0.75]{#splitline{Production of J/#psi and #varUpsilon}{with Acceptance and Efficiency}}; ;Events";
-    //else title = "#scale[0.75]{#splitline{Production of J/#psi and #varUpsilon}{without Acceptance and Efficiency}}; ;Events";
-    title = " ; ;Events";
+    if (useAcceptEff == true) title = "#scale[0.75]{#splitline{Production of J/#psi and #varUpsilon}{with Acceptance and Efficiency}}; ;Events";
+    else title = "#scale[0.75]{#splitline{Production of J/#psi and #varUpsilon}{without Acceptance and Efficiency}}; ;Events";
 
     TH1F* ParticleProductionHist = new TH1F("ParticleProductionHist", title, 6, -0.5, 5.5);
     
@@ -97,24 +96,19 @@ void jpsiupdouble() {
         NEvennts += scale * i;
         
         production[0] += pow(prob[0], i) * scale; //no special particle production
-        //production[0] += i * prob[0] * scale; //no special particle production
         production[1] += i * pow(prob[0], i - 1) * prob[1] * scale; //single j/psi
         production[2] += i * pow(prob[0], i - 1) * prob[2] * scale; //single upsilon
         production[3] += (i / 2) * (i - 1) * pow(prob[0], (i - 2)) * pow(prob[1], 2) * scale; //double j/psi
         production[4] += i * (i - 1) * pow(prob[0], (i - 2)) * prob[1] * prob[2] * scale; //j/psi + upsilon
         production[5] += (i / 2) * (i - 1) * pow(prob[0], (i - 2)) * pow(prob[2], 2) * scale; //double upsilon
-
-        //ParticleProductionHist->Fill(production);
     }
     
     for (int j(0); j < 6; ++j) {
         production[j] = production[j] * accepteff[j]; //add acceptance and efficiency into calculation
-        //cout << production[j] << endl;
         ParticleProductionHist->SetBinContent(j + 1, production[j]);
     }
     
     //re-scale to approprieate number of events
-    cout << ParticleProductionHist->Integral() << endl;
     ParticleProductionHist->Scale(1.0/ParticleProductionHist->Integral());
     ParticleProductionHist->Scale(vals.NumEvents()); //scale from calculated PbPbsigma and L_int
     
@@ -149,7 +143,7 @@ void jpsiupdouble() {
     for (int i(1); i < 6; ++i) {
         leg->AddEntry((TObject*)0, Form("%s #approx %.3f #pm %.3f", label[i], ParticleProductionHist->GetBinContent(i+1), ParticleProductionHist->GetBinError(i+1)), "");
     }
-    //leg->Draw();   
+    leg->Draw();   
 
     int whichProb = vals.whichProb;
 
@@ -159,10 +153,10 @@ void jpsiupdouble() {
     if (whichProb == 1) probabilityTitle = "#scale[0.8]{#splitline{Pr(#varUpsilon) = 3.10 #times 10^{-7}}{Pr(J/#psi) = 3.93 #times 10^{-5}}}";
     if (whichProb == 2) probabilityTitle = "#scale[0.8]{#splitline{Pr(#varUpsilon) = 1.34 #times 10^{-7}}{Pr(J/#psi) = 3.91 #times 10^{-5}}}";
     if (whichProb == 3) probabilityTitle = "#scale[0.8]{#splitline{Pr(#varUpsilon) = 2.26 #times 10^{-5}}{Pr(J/#psi) = 3.28 #times 10^{-4}}}";
-    //else return;
-    //TeX.DrawLatex(2.5, 1e+7, probabilityTitle);
-    //TeX.DrawLatex(2.5, 5e+8, "#scale[0.8]{#int L = 1.7nb^{-1}}");
-    //TeX.DrawLatex(2.5, 5e+9, "#scale[0.8]{#sqrt{s_{NN}} = 5.02 TeV}");
+    else return;
+    TeX.DrawLatex(2.5, 1e+7, probabilityTitle);
+    TeX.DrawLatex(2.5, 5e+8, "#scale[0.8]{#int L = 1.7nb^{-1}}");
+    TeX.DrawLatex(2.5, 5e+9, "#scale[0.8]{#sqrt{s_{NN}} = 5.02 TeV}");
     TeX.DrawLatex(2.5, 5e+8, "#scale[1.5]{#splitline{#varUpsilon + J/#psi Production}{with A #times E}}");
 
     //labels for histogram 

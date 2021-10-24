@@ -144,25 +144,4 @@ class DataVals {
         double JpsiCross1() {return jpsiCrossSection_final1;}
         double JpsiCross2() {return jpsiCrossSection_final2;}
         double JpsiCross3() {return jpsiCrossSection_final3;}
-
-
 };
-////////////////////
-//pPb stats 
-////////////////////
-
-// //cross sections from Feng et. al
-// double upsilonCrossSection2 = 1896e-09; //units: mb
-// double jpsiCrossSection2 = 255e-06; //units: mb
-// //modify quoted cross section appropriately 
-// double upsilonCrossSection_final2 = upsilonCrossSection2 / (upsilonFdirect * upsscaleFactor);
-// double jpsiCrossSection_final2 = jpsiCrossSection2 / (jpsiFdirect * jpsiscaleFactor);
-
-// //report probability 
-// double UpsilonProb2 = upsilonCrossSection_final2 / ppCrossSection;
-// double JpsiProb2 = jpsiCrossSection_final2 / ppCrossSection;
-
-// //pPb stats
-// double lum2 = 180 * 1e+9; //units: inverse barn
-// double pPbcrosssection = 2.09; //units: barn
-// double NEvents = lum2 * pPbcrosssection;
