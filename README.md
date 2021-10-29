@@ -4,7 +4,7 @@ The code presented here was used in the analysis of double quarkonium yields as 
 
 ## Paper and Poster
 
-Both a paper containing a full summary of the research and a poster summarizing the research findings are included in the repo. The poster was presented as part of the CEU program at the 2021 DNP conference. 
+Both a paper (`quarkonium_production_paper.pdf`) containing a full summary of the research and a poster (`quarkonium_poster.pdf`) summarizing the research findings are included in the repo. The poster was presented as part of the CEU program at the 2021 DNP conference. 
 
 ## Summary of code
 
