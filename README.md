@@ -2,6 +2,10 @@
 
 The code presented here was used in the analysis of double quarkonium yields as part of an ongoing research project at the University of California, Davis as a part of the CMS collaboration. This research would not be possible without the UCD REU program and was funded through the NSF. 
 
+## Paper and Poster
+
+Both a paper containing a full summary of the research and a poster summarizing the research findings are included in the repo. The poster was presented as part of the CEU program at the 2021 DNP conference. 
+
 ## Summary of code
 
 All code is written in `C++` and uses Cern's `ROOT` library. 
