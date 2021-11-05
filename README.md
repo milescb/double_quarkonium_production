@@ -1,6 +1,6 @@
 # Uncorrelated Production of Double Quarkonium
 
-The code presented here was used in the analysis of double quarkonium yields as part of an ongoing research project at the University of California, Davis as a part of the CMS collaboration. This research would not be possible without the UCD REU program and was funded through the NSF. 
+The code presented here was used in the analysis of double quarkonium yields as part of an ongoing research project at the University of California, Davis as a part of the CMS collaboration. This research would not be possible without the support of the UCD REU program and the NSF. 
 
 ## Paper and Poster
 
